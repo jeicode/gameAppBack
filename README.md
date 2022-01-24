@@ -4,7 +4,7 @@ This project is running with Node.js version 16.13.0
 
 ## Config enviroment
 
-- In this file [a relative link](.example.env) are configured the enviroment vars. 
+- In this file [example.env](.example.env) are configured the enviroment vars. 
 - Create file .env and set data depending your configuration local.
 
 1. PORT = PORT THAT RUNS YOUR PROJECT
@@ -21,5 +21,5 @@ This project is running with Node.js version 16.13.0
 
 ## Documentation Postman
 
-[a link](https://documenter.getpostman.com/view/11402221/UVXqDXyq)
+[Postman](https://documenter.getpostman.com/view/11402221/UVXqDXyq)
 
