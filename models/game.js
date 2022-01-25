@@ -22,7 +22,7 @@ const Game = db.define('Game', {
     },
 
     img: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(1500),
 
     },
 

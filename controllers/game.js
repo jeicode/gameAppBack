@@ -37,6 +37,14 @@ const GetGames = async (req, res = response) => {
     try {
         const {count, rows:games} = await Game.findAndCountAll({ 
             include: [ Company, User],
+            where: {
+                stock: {
+                [Op.gt]: 0
+                }
+            },
+            order: [
+                ['createdAt', 'DESC'],
+            ],
             offset, 
             limit}
         );
@@ -62,7 +70,10 @@ const GetGamesSeller = async (req, res = response) => {
             [Op.like] : `%${search}%`
          }
 
-         let queryset = null
+         let queryset = {
+            
+            offered_by: req.params.id,
+         }
 
          if (search){
             queryset = {
@@ -85,11 +96,14 @@ const GetGamesSeller = async (req, res = response) => {
          
         } 
         const {count, rows:games} = await Game.findAndCountAll({ 
-
             include: {
+
                 model: Company,
             },
             where: queryset,
+            order: [
+                ['platform', 'ASC'],
+            ],
             offset, 
             limit }
         );

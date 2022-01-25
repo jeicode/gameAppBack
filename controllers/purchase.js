@@ -42,6 +42,9 @@ const ListPurchasesSeller = async (req, res = response) => {
             where:{
                 seller_id: req.user.id
             },
+            order: [
+                ['createdAt', 'DESC'],
+            ],  
             include: [
                 { 
                     model: User,
@@ -58,6 +61,7 @@ const ListPurchasesSeller = async (req, res = response) => {
             limit,
          
         })
+        console.log("purchases ", purchases)
         let total_pages = (count/limit) + 0.5 
         total_pages = Math.round(total_pages) -1
         const current_page = page + 1
